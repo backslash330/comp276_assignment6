@@ -23,11 +23,26 @@ using namespace std;
 
 //////////////////////////////////////////////////
 // Constructor 
-
+our_deque::our_deque()
+{
+	head = NULL;
+	tail = NULL;
+}
 
 
 //////////////////////////////////////////////////
 // Destructor
+our_deque::~our_deque()
+{
+	bcdnode *temp;
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->link_ahead;
+		delete temp;
+	}
+	tail = NULL;
+}
 
 
 
@@ -63,6 +78,60 @@ void our_deque::pop_front()
 	
 	delete temp;
 	
+	
+}
+
+void our_deque::pop_back()
+{
+	// create a temp pointer to the tail
+	bcdnode *temp = tail;
+	
+	// if the list is empty, return
+	if(empty())
+		return;
+
+	// if the list has one element, delete the head and set head and tail to NULL
+	if(head == tail)
+	{
+		delete head;
+		head = NULL;
+		tail = NULL;
+		return;
+	}
+	
+	// if the list has more than one element, set the tail to the previous node
+	tail = tail->link_back;
+	tail->link_ahead = NULL;
+	
+	// delete the temp pointer
+	delete temp;
+	
+}
+
+void our_deque::push(string &newstring)
+{
+	// cout << "Entered push!" <<endl;
+	// cout << "newstring is: " << newstring << endl;
+	// create a new temp node
+	bcdnode *temp = new bcdnode;
+	temp->data = newstring;
+	temp->link_ahead = NULL;
+	temp->link_back = NULL;
+	
+	// if the list is empty, set head and tail to the new node
+	if(empty()){
+		head = temp;
+		tail = temp;
+		return;
+	}
+
+	// if the list is not empty, set the new node's link_back to the tail and set the tail's link_ahead to the new node	
+	else{
+	tail->link_ahead = temp;
+	temp->link_back = tail;
+	tail = temp;
+	}
+
 	
 }
 

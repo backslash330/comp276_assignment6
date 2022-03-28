@@ -41,21 +41,26 @@ int main()
     bool is_pal = true; //assumed a word-by-word plaindrome until proven not
 	
 	cout << "Enter a line of text and I will tell you if it is a word-by-word palindrome: ";
-		
+
 	getline(cin, line);
 	
 	for(int i = 0; i < line.length(); i++)
 	{
+		// cout << "i = " << i << endl;
+		// cout << "line[i] = " << line[i] << endl;
 		if(isspace(line[i]))
 		{
 			pal.push(word);
 		//	cout << word <<" pushed."<<endl;
 			word = "";
 		}
-		else if(isalnum(line[i]))
+		else if(isalnum(line[i])  || line[i] == '\'')
 			word += tolower(line[i]);
 	}
-	pal.push(word);
+
+	if (word != "")
+		pal.push(word);
+//	pal.push(word);
 	//cout << word <<" pushed."<<endl;
 
 	while(!pal.single() && !pal.empty())
