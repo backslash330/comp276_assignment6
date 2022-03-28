@@ -9,6 +9,7 @@
 */
 // CONSTRUCTOR for the our_deque class:
 //   our_deque( )
+//     Precondition:  None.
 //     Postcondition: The deque is empy (i.e. head and tail are both NULL)
 //
 //GETTERS
@@ -21,19 +22,24 @@
 //		Postcondition: the string in the node at the rear of our_deque is returned.
 //
 //  bool empty() const 
+//    Precondition:  None.
 //		Postcondition: returns true if our_deque is empty and false otherwise
 //
 //  bool single() const
+//    Precondition:  None.
 //		Postcondition: returns true if our deque only has one element
 //
 // MODIFIERS
 //  void pop_front()
+//    Precondition:  None.
 //		Postcondition: if our_deque is empty, nothing happens, else element at the front of our deque is removed.
 //  
 //  void pop_back()
+//    Precondition:  None.
 //		Postcondition: if our_deque is empty, nothing happens, else element at the rear of our deque is removed.
 //
 //  void push(string &newstring)
+//    Precondition:  None.
 //		Postcondition: A new element is added to the rear of our_deque that contains the string newstring
 //
 // VALUE SEMANTICS for the our_deque class:

@@ -46,8 +46,6 @@ int main()
 	
 	for(int i = 0; i < line.length(); i++)
 	{
-		// cout << "i = " << i << endl;
-		// cout << "line[i] = " << line[i] << endl;
 		if(isspace(line[i]))
 		{
 			pal.push(word);
@@ -60,7 +58,6 @@ int main()
 
 	if (word != "")
 		pal.push(word);
-//	pal.push(word);
 	//cout << word <<" pushed."<<endl;
 
 	while(!pal.single() && !pal.empty())

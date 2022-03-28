@@ -110,8 +110,6 @@ void our_deque::pop_back()
 
 void our_deque::push(string &newstring)
 {
-	// cout << "Entered push!" <<endl;
-	// cout << "newstring is: " << newstring << endl;
 	// create a new temp node
 	bcdnode *temp = new bcdnode;
 	temp->data = newstring;
